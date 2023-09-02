@@ -340,6 +340,8 @@ namespace TasKagitMakas
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AllocConsole();
         
+        public static Random random = new Random();
+
         public static List<Nesne> kullanicikartlariList = new List<Nesne>();
         static void Main()
         {

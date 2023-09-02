@@ -32,15 +32,15 @@ namespace TasKagitMakas
             Console.WriteLine("Click Command --> Tas Button");
             if (Program.kullanicikartlariList.Count < 5)
             {
-                Program.kullanicikartlariList.Add(new TasClass());
+                Program.kullanicikartlariList.Add(new KagitClass());
                 label3.Text = "Seçilen karakter sayısı = " + Program.kullanicikartlariList.Count;
-            }
-            else if (Program.kullanicikartlariList.Count == 5)
-            {
-                for(int i = 0; i < 5; i++)
+                if (Program.kullanicikartlariList.Count == 5)
                 {
-                    Console.WriteLine(Program.kullanicikartlariList[i].ToString()+"\n------------------\n");
-                    
+                    for (int i = 0; i < 5; i++)
+                    {
+                        Console.WriteLine(Program.kullanicikartlariList[i].ToString() + "\n------------------\n");
+
+                    }
                 }
             }
 
@@ -53,13 +53,13 @@ namespace TasKagitMakas
             {
                 Program.kullanicikartlariList.Add(new KagitClass());
                 label3.Text = "Seçilen karakter sayısı = " + Program.kullanicikartlariList.Count;
-            }
-            else if (Program.kullanicikartlariList.Count == 5)
-            {
-                for (int i = 0; i < 5; i++)
+                if (Program.kullanicikartlariList.Count == 5)
                 {
-                    Console.WriteLine(Program.kullanicikartlariList[i].ToString() + "\n------------------\n");
+                    for (int i = 0; i < 5; i++)
+                    {
+                        Console.WriteLine(Program.kullanicikartlariList[i].ToString() + "\n------------------\n");
 
+                    }
                 }
             }
         }
@@ -69,15 +69,15 @@ namespace TasKagitMakas
             Console.WriteLine("Click Command --> Makas Button");
             if (Program.kullanicikartlariList.Count < 5)
             {
-                Program.kullanicikartlariList.Add(new MakasClass());
+                Program.kullanicikartlariList.Add(new KagitClass());
                 label3.Text = "Seçilen karakter sayısı = " + Program.kullanicikartlariList.Count;
-            }
-            else if (Program.kullanicikartlariList.Count == 5)
-            {
-                for (int i = 0; i < 5; i++)
+                if (Program.kullanicikartlariList.Count == 5)
                 {
-                    Console.WriteLine(Program.kullanicikartlariList[i].ToString() + "\n------------------\n");
+                    for (int i = 0; i < 5; i++)
+                    {
+                        Console.WriteLine(Program.kullanicikartlariList[i].ToString() + "\n------------------\n");
 
+                    }
                 }
             }
         }

@@ -111,7 +111,7 @@
             label3.Name = "label3";
             label3.Size = new Size(315, 59);
             label3.TabIndex = 5;
-            label3.Text = "Seçilen karakter sayısı = "+Program.kullanicikartlariList.Count; // burada değişim yaptım (sıfır yerine array size atadım)
+            label3.Text = "Seçilen karakter sayısı = 0";
             // 
             // kullaniciForm
             // 
