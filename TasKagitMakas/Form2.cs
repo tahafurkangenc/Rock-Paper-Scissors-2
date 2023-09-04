@@ -32,7 +32,7 @@ namespace TasKagitMakas
             Console.WriteLine("Click Command --> Tas Button");
             if (Program.kullanicikartlariList.Count < 5)
             {
-                Program.kullanicikartlariList.Add(new KagitClass());
+                Program.kullanicikartlariList.Add(new TasClass());
                 label3.Text = "Seçilen karakter sayısı = " + Program.kullanicikartlariList.Count;
                 if (Program.kullanicikartlariList.Count == 5)
                 {
@@ -41,6 +41,9 @@ namespace TasKagitMakas
                         Console.WriteLine(Program.kullanicikartlariList[i].ToString() + "\n------------------\n");
 
                     }
+                    GameForm gameForm = new GameForm();
+                    gameForm.Visible = true;
+                    this.Visible = false;
                 }
             }
 
@@ -60,6 +63,9 @@ namespace TasKagitMakas
                         Console.WriteLine(Program.kullanicikartlariList[i].ToString() + "\n------------------\n");
 
                     }
+                    GameForm gameForm = new GameForm();
+                    gameForm.Visible = true;
+                    this.Visible = false;
                 }
             }
         }
@@ -69,7 +75,7 @@ namespace TasKagitMakas
             Console.WriteLine("Click Command --> Makas Button");
             if (Program.kullanicikartlariList.Count < 5)
             {
-                Program.kullanicikartlariList.Add(new KagitClass());
+                Program.kullanicikartlariList.Add(new MakasClass());
                 label3.Text = "Seçilen karakter sayısı = " + Program.kullanicikartlariList.Count;
                 if (Program.kullanicikartlariList.Count == 5)
                 {
@@ -78,6 +84,9 @@ namespace TasKagitMakas
                         Console.WriteLine(Program.kullanicikartlariList[i].ToString() + "\n------------------\n");
 
                     }
+                    GameForm gameForm = new GameForm();
+                    gameForm.Visible = true;
+                    this.Visible = false;
                 }
             }
         }

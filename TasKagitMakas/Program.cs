@@ -254,6 +254,7 @@ namespace TasKagitMakas
 
     public class MakasClass : Nesne
     {
+        
         public MakasClass()
         {
             // // olanlar 2. constructorda parametre olan değişkenlerdir
@@ -389,7 +390,7 @@ namespace TasKagitMakas
 
 
             Application.Run(new Form1());
-            
+            //Application.Run(new GameForm());
         }
     }
 }
