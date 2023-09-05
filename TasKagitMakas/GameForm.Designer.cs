@@ -101,6 +101,7 @@
             NesneBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             NesneBox3.TabIndex = 2;
             NesneBox3.TabStop = false;
+            NesneBox3.Click += NesneBox3_Click;
             // 
             // NesneBox5
             // 
@@ -112,7 +113,6 @@
             NesneBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             NesneBox5.TabIndex = 4;
             NesneBox5.TabStop = false;
-            NesneBox5.Click += pictureBox3_Click;
             // 
             // NesneBox4
             // 
@@ -135,7 +135,6 @@
             SecilenBox.SizeMode = PictureBoxSizeMode.StretchImage;
             SecilenBox.TabIndex = 5;
             SecilenBox.TabStop = false;
-            SecilenBox.Click += pictureBox5_Click;
             // 
             // RakipBox
             // 
