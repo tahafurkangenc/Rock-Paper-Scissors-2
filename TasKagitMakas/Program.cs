@@ -344,6 +344,8 @@ namespace TasKagitMakas
         public static Random random = new Random();
 
         public static List<Nesne> kullanicikartlariList = new List<Nesne>();
+        public static List<Nesne> rakipkartlariList = new List<Nesne>();
+
         static void Main()
         {
             AllocConsole();
@@ -387,6 +389,46 @@ namespace TasKagitMakas
             Console.WriteLine("Usta Makas to kagit : " + ustaMakasClass.etkiHesapla(kagitClass));
             Console.WriteLine("Usta Makas to ozelkagit : " + ustaMakasClass.etkiHesapla(ozelKagitClass));
             Console.WriteLine("Usta Makas to agirtas : " + ustaMakasClass.etkiHesapla(agirTasClass));
+
+            // Rakip kartların random seçilişi
+            if (rakipkartlariList.Count == 0)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    int randomsayi = random.Next(3);
+                    if (randomsayi == 0)// TAŞ 
+                    {
+                        rakipkartlariList.Add(new TasClass());
+                    }
+                    else if (randomsayi == 1) //KAĞIT
+                    {
+                        rakipkartlariList.Add(new KagitClass());
+                    }
+                    else if (randomsayi == 2) //MAKAS
+                    {
+                        rakipkartlariList.Add(new MakasClass());
+                    }
+
+                }
+                if (rakipkartlariList.Count == 5)
+                {
+                    Console.WriteLine("Rakip Bilgisayar Rastgele Seçimleri");
+                    for (int i = 0; i < 5; i++)
+                    {
+                        Console.WriteLine(rakipkartlariList[i].ToString() + "\n------------------\n");
+
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("HATA : rakipkartlariList boyutu 5 değil.\n Program.rakipkartlariList.Count =" + rakipkartlariList.Count);
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("HATA : rakipkartlariList boyutu 0 değil.\n Program.rakipkartlariList.Count =" + rakipkartlariList.Count);
+            }
 
 
             Application.Run(new Form1());

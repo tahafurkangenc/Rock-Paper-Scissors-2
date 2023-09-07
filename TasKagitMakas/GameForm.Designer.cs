@@ -48,6 +48,7 @@
             dayanikliliklabel4 = new Label();
             seviyepuanilabel5 = new Label();
             dayanikliliklabel5 = new Label();
+            hamleyapPictureBox = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)NesneBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NesneBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NesneBox3).BeginInit();
@@ -55,6 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)NesneBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)SecilenBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RakipBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)hamleyapPictureBox).BeginInit();
             SuspendLayout();
             // 
             // kartImageList
@@ -68,6 +70,7 @@
             kartImageList.Images.SetKeyName(3, "agir tas.png");
             kartImageList.Images.SetKeyName(4, "ozelkagit.png");
             kartImageList.Images.SetKeyName(5, "usta makas.png");
+            kartImageList.Images.SetKeyName(6, "1693860868587.png");
             // 
             // NesneBox1
             // 
@@ -79,6 +82,7 @@
             NesneBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             NesneBox1.TabIndex = 0;
             NesneBox1.TabStop = false;
+            NesneBox1.Click += NesneBox1_Click;
             // 
             // NesneBox2
             // 
@@ -90,6 +94,7 @@
             NesneBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             NesneBox2.TabIndex = 1;
             NesneBox2.TabStop = false;
+            NesneBox2.Click += NesneBox2_Click;
             // 
             // NesneBox3
             // 
@@ -113,6 +118,7 @@
             NesneBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             NesneBox5.TabIndex = 4;
             NesneBox5.TabStop = false;
+            NesneBox5.Click += NesneBox5_Click;
             // 
             // NesneBox4
             // 
@@ -124,6 +130,7 @@
             NesneBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             NesneBox4.TabIndex = 3;
             NesneBox4.TabStop = false;
+            NesneBox4.Click += NesneBox4_Click;
             // 
             // SecilenBox
             // 
@@ -267,12 +274,25 @@
             dayanikliliklabel5.TabIndex = 15;
             dayanikliliklabel5.Text = "Dayanıklılık = 20";
             // 
+            // hamleyapPictureBox
+            // 
+            hamleyapPictureBox.BackColor = Color.Transparent;
+            hamleyapPictureBox.BackgroundImage = (Image)resources.GetObject("hamleyapPictureBox.BackgroundImage");
+            hamleyapPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
+            hamleyapPictureBox.Location = new Point(30, 585);
+            hamleyapPictureBox.Name = "hamleyapPictureBox";
+            hamleyapPictureBox.Size = new Size(590, 123);
+            hamleyapPictureBox.TabIndex = 17;
+            hamleyapPictureBox.TabStop = false;
+            hamleyapPictureBox.Click += hamleyapPictureBox_Click;
+            // 
             // GameForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.coin__3_;
             ClientSize = new Size(1280, 720);
+            Controls.Add(hamleyapPictureBox);
             Controls.Add(seviyepuanilabel5);
             Controls.Add(dayanikliliklabel5);
             Controls.Add(seviyepuanilabel4);
@@ -302,6 +322,7 @@
             ((System.ComponentModel.ISupportInitialize)NesneBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)SecilenBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)RakipBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)hamleyapPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -326,5 +347,6 @@
         private Label dayanikliliklabel4;
         private Label seviyepuanilabel5;
         private Label dayanikliliklabel5;
+        private PictureBox hamleyapPictureBox;
     }
 }
