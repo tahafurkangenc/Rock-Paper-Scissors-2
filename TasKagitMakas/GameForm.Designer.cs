@@ -49,6 +49,9 @@
             seviyepuanilabel5 = new Label();
             dayanikliliklabel5 = new Label();
             hamleyapPictureBox = new PictureBox();
+            rakipseviyepuanilabel = new Label();
+            rakipdayanikliliklabel = new Label();
+            tursayisilabel = new Label();
             ((System.ComponentModel.ISupportInitialize)NesneBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NesneBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NesneBox3).BeginInit();
@@ -286,12 +289,51 @@
             hamleyapPictureBox.TabStop = false;
             hamleyapPictureBox.Click += hamleyapPictureBox_Click;
             // 
+            // rakipseviyepuanilabel
+            // 
+            rakipseviyepuanilabel.AutoSize = true;
+            rakipseviyepuanilabel.BackColor = Color.Transparent;
+            rakipseviyepuanilabel.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            rakipseviyepuanilabel.ForeColor = Color.Blue;
+            rakipseviyepuanilabel.Location = new Point(783, 642);
+            rakipseviyepuanilabel.Name = "rakipseviyepuanilabel";
+            rakipseviyepuanilabel.Size = new Size(115, 20);
+            rakipseviyepuanilabel.TabIndex = 19;
+            rakipseviyepuanilabel.Text = "Seviye Puanı = 0";
+            // 
+            // rakipdayanikliliklabel
+            // 
+            rakipdayanikliliklabel.AutoSize = true;
+            rakipdayanikliliklabel.BackColor = Color.Transparent;
+            rakipdayanikliliklabel.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            rakipdayanikliliklabel.ForeColor = Color.Red;
+            rakipdayanikliliklabel.Location = new Point(783, 611);
+            rakipdayanikliliklabel.Name = "rakipdayanikliliklabel";
+            rakipdayanikliliklabel.Size = new Size(117, 20);
+            rakipdayanikliliklabel.TabIndex = 18;
+            rakipdayanikliliklabel.Text = "Dayanıklılık = 20";
+            // 
+            // tursayisilabel
+            // 
+            tursayisilabel.AutoSize = true;
+            tursayisilabel.BackColor = Color.Transparent;
+            tursayisilabel.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            tursayisilabel.ForeColor = Color.Lime;
+            tursayisilabel.Location = new Point(783, 585);
+            tursayisilabel.Name = "tursayisilabel";
+            tursayisilabel.Size = new Size(96, 20);
+            tursayisilabel.TabIndex = 20;
+            tursayisilabel.Text = "Tur Sayısı = 0";
+            // 
             // GameForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.coin__3_;
             ClientSize = new Size(1280, 720);
+            Controls.Add(tursayisilabel);
+            Controls.Add(rakipseviyepuanilabel);
+            Controls.Add(rakipdayanikliliklabel);
             Controls.Add(hamleyapPictureBox);
             Controls.Add(seviyepuanilabel5);
             Controls.Add(dayanikliliklabel5);
@@ -348,5 +390,8 @@
         private Label seviyepuanilabel5;
         private Label dayanikliliklabel5;
         private PictureBox hamleyapPictureBox;
+        private Label rakipseviyepuanilabel;
+        private Label rakipdayanikliliklabel;
+        private Label tursayisilabel;
     }
 }

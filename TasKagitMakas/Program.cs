@@ -129,6 +129,10 @@ namespace TasKagitMakas
 
         public override double etkiHesapla(Nesne rakipnesne)
         {
+            if (rakipnesne.nesneadi.Equals("Tas") || rakipnesne.nesneadi.Equals("Agir Tas"))
+            {
+                return 0;
+            }
             if (rakipnesne.evrimGecirdimi) 
             {
                 return (katilik) / ((a * rakipnesne.keskinlik * rakipnesne.direnc) + ((1 - a) * rakipnesne.nufus * rakipnesne.kalinlik)); // onaylandı
@@ -165,6 +169,10 @@ namespace TasKagitMakas
 
         public override double etkiHesapla(Nesne rakipnesne)
         {
+            if (rakipnesne.nesneadi.Equals("Tas") || rakipnesne.nesneadi.Equals("Agir Tas"))
+            {
+                return 0;
+            }
             if (rakipnesne.evrimGecirdimi)  // rakip nesne evrim geçirdiyse
             {
                 return (katilik * sicaklik) / ((a * rakipnesne.keskinlik* rakipnesne.direnc) + ((1 - a) * rakipnesne.nufus * rakipnesne.kalinlik));
@@ -203,6 +211,10 @@ namespace TasKagitMakas
 
         public override double etkiHesapla(Nesne rakipnesne)
         {
+            if (rakipnesne.nesneadi.Equals("Kagit") || rakipnesne.nesneadi.Equals("Ozel Kagit"))
+            {
+                return 0;
+            }
             if (rakipnesne.evrimGecirdimi) // rakip evrim geçirdiyse
             {
                 return (nufus) / ((a * rakipnesne.katilik * rakipnesne.sicaklik) + ((1 - a) * rakipnesne.keskinlik * rakipnesne.direnc)); //onaylandı
@@ -239,6 +251,10 @@ namespace TasKagitMakas
 
         public override double etkiHesapla(Nesne rakipnesne)
         {
+            if (rakipnesne.nesneadi.Equals("Kagit") || rakipnesne.nesneadi.Equals("Ozel Kagit"))
+            {
+                return 0;
+            }
             if (rakipnesne.evrimGecirdimi)  // rakip nesne evrim geçirdiyse
             {
                 return (nufus * kalinlik) / ((a * rakipnesne.katilik * rakipnesne.sicaklik) + ((1 - a) * rakipnesne.keskinlik * rakipnesne.direnc));
@@ -279,6 +295,10 @@ namespace TasKagitMakas
 
         public override double etkiHesapla(Nesne rakipnesne)
         {
+            if (rakipnesne.nesneadi.Equals("Makas") || rakipnesne.nesneadi.Equals("Usta Makas"))
+            {
+                return 0;
+            }
             if (rakipnesne.evrimGecirdimi)
             {
                 return (keskinlik) / ((a * rakipnesne.nufus * rakipnesne.kalinlik) + ((1 - a) * rakipnesne.katilik * rakipnesne.sicaklik)); //onaylandı
@@ -317,6 +337,10 @@ namespace TasKagitMakas
 
         public override double etkiHesapla(Nesne rakipnesne)
         {
+            if (rakipnesne.nesneadi.Equals("Makas") || rakipnesne.nesneadi.Equals("Usta Makas"))
+            {
+                return 0;
+            }
             if (rakipnesne.evrimGecirdimi)
             {
                 return (keskinlik*direnc) / ((a * rakipnesne.nufus * rakipnesne.kalinlik) + ((1 - a) * rakipnesne.katilik * rakipnesne.sicaklik)); //onaylandı

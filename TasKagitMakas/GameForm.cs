@@ -17,8 +17,11 @@ namespace TasKagitMakas
             InitializeComponent();
         }
 
+        int tursayisi = 0;
+
         private void GameForm_Load(object sender, EventArgs e)
         {
+            tursayisilabel.Text = "Tur Sayisi = " + tursayisi;
             hamleyapPictureBox.Visible = false;
             //Nesne Box 1 için
             if (Program.kullanicikartlariList[0].nesneadi.Equals("Tas"))
@@ -156,37 +159,133 @@ namespace TasKagitMakas
         {
             //secilennesne.dayaniklilik = 10.0;
             Console.WriteLine("Pressed Button --- > Hamleyap");
-            //Console.WriteLine(secilennesne.ToString());
-            Console.WriteLine("Program.kullanicikartlariList.IndexOf(secilennesne) =" + Program.kullanicikartlariList.IndexOf(secilennesne));
-            Nesne rakipnesne = Program.rakipkartlariList[Program.random.Next(Program.rakipkartlariList.Count)];
-            //Savaştırma
-            secilennesne.dayaniklilik=secilennesne.dayaniklilik-rakipnesne.etkiHesapla(secilennesne);
-            rakipnesne.dayaniklilik = rakipnesne.dayaniklilik - secilennesne.etkiHesapla(rakipnesne);
-            //ölüm kontrolü
-            if (secilennesne.dayaniklilik <= 0.0)
-            {
-                if (Program.kullanicikartlariList.IndexOf(secilennesne) == 0) // NesneBox1
+
+            if (secilennesne.dayaniklilik  > 0.0) {
+                //Console.WriteLine(secilennesne.ToString());
+                Console.WriteLine("Program.kullanicikartlariList.IndexOf(secilennesne) =" + Program.kullanicikartlariList.IndexOf(secilennesne));
+                Nesne rakipnesne = Program.rakipkartlariList[Program.random.Next(Program.rakipkartlariList.Count)];
+
+                /*----- RAKİPBOX FOTOĞRAF YERLEŞTİRME -----*/
+                if (rakipnesne.nesneadi.Equals("Tas"))
                 {
-                    NesneBox1.Image = kartImageList.Images[6];
+                    RakipBox.Image = kartImageList.Images[0];
                 }
-                if (Program.kullanicikartlariList.IndexOf(secilennesne) == 1) // NesneBox2
+                if (rakipnesne.nesneadi.Equals("Kagit"))
                 {
-                    NesneBox2.Image = kartImageList.Images[6];
+                    RakipBox.Image = kartImageList.Images[1];
                 }
-                if (Program.kullanicikartlariList.IndexOf(secilennesne) == 2) // NesneBox3
+                if (rakipnesne.nesneadi.Equals("Makas"))
                 {
-                    NesneBox3.Image = kartImageList.Images[6];
+                    RakipBox.Image = kartImageList.Images[2];
                 }
-                if (Program.kullanicikartlariList.IndexOf(secilennesne) == 3) // NesneBox4
+                if (rakipnesne.nesneadi.Equals("Agir Tas"))
                 {
-                    NesneBox4.Image = kartImageList.Images[6];
+                    RakipBox.Image = kartImageList.Images[3];
                 }
-                if (Program.kullanicikartlariList.IndexOf(secilennesne) == 4) // NesneBox5
+                if (rakipnesne.nesneadi.Equals("Ozel Kagit"))
                 {
-                    NesneBox5.Image = kartImageList.Images[6];
+                    RakipBox.Image = kartImageList.Images[4];
                 }
-                rakipnesne.seviyePuani = rakipnesne.seviyePuani + 20;
+                if (rakipnesne.nesneadi.Equals("Usta Makas"))
+                {
+                    RakipBox.Image = kartImageList.Images[5];
+                }
+
+                //Savaştırma
+                secilennesne.dayaniklilik = secilennesne.dayaniklilik - rakipnesne.etkiHesapla(secilennesne);
+                rakipnesne.dayaniklilik = rakipnesne.dayaniklilik - secilennesne.etkiHesapla(rakipnesne);
+                //ölüm kontrolü
+                if (secilennesne.dayaniklilik <= 0.0) // rakip nesne , seçilen nesneyi öldürürse
+                {
+                    if (Program.kullanicikartlariList.IndexOf(secilennesne) == 0) // NesneBox1
+                    {
+                        NesneBox1.Image = kartImageList.Images[6];
+                    }
+                    if (Program.kullanicikartlariList.IndexOf(secilennesne) == 1) // NesneBox2
+                    {
+                        NesneBox2.Image = kartImageList.Images[6];
+                    }
+                    if (Program.kullanicikartlariList.IndexOf(secilennesne) == 2) // NesneBox3
+                    {
+                        NesneBox3.Image = kartImageList.Images[6];
+                    }
+                    if (Program.kullanicikartlariList.IndexOf(secilennesne) == 3) // NesneBox4
+                    {
+                        NesneBox4.Image = kartImageList.Images[6];
+                    }
+                    if (Program.kullanicikartlariList.IndexOf(secilennesne) == 4) // NesneBox5
+                    {
+                        NesneBox5.Image = kartImageList.Images[6];
+                    }
+                    SecilenBox.Image = kartImageList.Images[6];
+                    rakipnesne.seviyePuani = rakipnesne.seviyePuani + 20;
+                    if (rakipnesne.seviyePuani > 30) // rakip nesne level atlarsa
+                    {
+                        //rakip nesne level atlarsa ekle
+                    }
+                }
+                if (rakipnesne.dayaniklilik <= 0.0) // seçilen nesne , rakip nesneyi öldürürse
+                {
+                    secilennesne.seviyePuani = secilennesne.seviyePuani + 20;
+                    if (secilennesne.seviyePuani > 30)
+                    {
+                        //seçilen nesne level atlarsa ekle
+                    }
+                    Program.rakipkartlariList.Remove(rakipnesne);
+                    RakipBox.Image = kartImageList.Images[6];
+                }
+                /*--------------- YAZI GÜNCELLEMELERİ ---------------*/
+                //Kullanıcının kartları:
+                if (Program.kullanicikartlariList.IndexOf(secilennesne) == 0) // Label1
+                {
+                    dayanikliliklabel1.Text = "Dayanıklılık = " + secilennesne.dayaniklilik;
+                    seviyepuanilabel1.Text = "Seviye Puanı = " + secilennesne.seviyePuani;
+                }
+                if (Program.kullanicikartlariList.IndexOf(secilennesne) == 1) // Label2
+                {
+                    dayanikliliklabel2.Text = "Dayanıklılık = " + secilennesne.dayaniklilik;
+                    seviyepuanilabel2.Text = "Seviye Puanı = " + secilennesne.seviyePuani;
+                }
+                if (Program.kullanicikartlariList.IndexOf(secilennesne) == 2) // Label3
+                {
+                    dayanikliliklabel3.Text = "Dayanıklılık = " + secilennesne.dayaniklilik;
+                    seviyepuanilabel3.Text = "Seviye Puanı = " + secilennesne.seviyePuani;
+                }
+                if (Program.kullanicikartlariList.IndexOf(secilennesne) == 3) // Label4
+                {
+                    dayanikliliklabel4.Text = "Dayanıklılık = " + secilennesne.dayaniklilik;
+                    seviyepuanilabel4.Text = "Seviye Puanı = " + secilennesne.seviyePuani;
+                }
+                if (Program.kullanicikartlariList.IndexOf(secilennesne) == 4) // Label5
+                {
+                    dayanikliliklabel5.Text = "Dayanıklılık = " + secilennesne.dayaniklilik;
+                    seviyepuanilabel5.Text = "Seviye Puanı = " + secilennesne.seviyePuani;
+                }
+                //Rakibin kartları:
+                rakipdayanikliliklabel.Text = "Dayanıklılık = " + rakipnesne.dayaniklilik;
+                rakipseviyepuanilabel.Text = "Seviye Puanı = " + rakipnesne.seviyePuani;
+                /*----- Tur Sayısı Label Güncelleme -----*/
+                tursayisi++;
+                tursayisilabel.Text = "Tur Sayısı = " + tursayisi;
+                double kullanicikartlaritoplamskor = 0;
+                for (int i = 0; i < Program.kullanicikartlariList.Count; i++)
+                {
+                    kullanicikartlaritoplamskor = kullanicikartlaritoplamskor + Program.kullanicikartlariList[i].dayaniklilik;
+                }
+                if (Program.rakipkartlariList.Count <= 0 && kullanicikartlaritoplamskor <= 0)
+                {
+                    Console.WriteLine("OYUN BİTTİ ---> Berabere");
+                }
+                else if (Program.rakipkartlariList.Count <= 0)
+                {
+                    Console.WriteLine("OYUN BİTTİ ---> Kullanici kazandi");
+                }
+                else if (kullanicikartlaritoplamskor <= 0)
+                {
+                    Console.WriteLine("OYUN BİTTİ ---> Rakip kazandi");
+                }
             }
+
         }
     }
 }
