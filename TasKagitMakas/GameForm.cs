@@ -165,31 +165,7 @@ namespace TasKagitMakas
                 Console.WriteLine("Program.kullanicikartlariList.IndexOf(secilennesne) =" + Program.kullanicikartlariList.IndexOf(secilennesne));
                 Nesne rakipnesne = Program.rakipkartlariList[Program.random.Next(Program.rakipkartlariList.Count)];
 
-                /*----- RAKİPBOX FOTOĞRAF YERLEŞTİRME -----*/
-                if (rakipnesne.nesneadi.Equals("Tas"))
-                {
-                    RakipBox.Image = kartImageList.Images[0];
-                }
-                if (rakipnesne.nesneadi.Equals("Kagit"))
-                {
-                    RakipBox.Image = kartImageList.Images[1];
-                }
-                if (rakipnesne.nesneadi.Equals("Makas"))
-                {
-                    RakipBox.Image = kartImageList.Images[2];
-                }
-                if (rakipnesne.nesneadi.Equals("Agir Tas"))
-                {
-                    RakipBox.Image = kartImageList.Images[3];
-                }
-                if (rakipnesne.nesneadi.Equals("Ozel Kagit"))
-                {
-                    RakipBox.Image = kartImageList.Images[4];
-                }
-                if (rakipnesne.nesneadi.Equals("Usta Makas"))
-                {
-                    RakipBox.Image = kartImageList.Images[5];
-                }
+                
 
                 //Savaştırma
                 secilennesne.dayaniklilik = secilennesne.dayaniklilik - rakipnesne.etkiHesapla(secilennesne);
@@ -222,6 +198,31 @@ namespace TasKagitMakas
                     if (rakipnesne.seviyePuani > 30) // rakip nesne level atlarsa
                     {
                         //rakip nesne level atlarsa ekle
+                        if (rakipnesne.nesneadi.Equals("Tas"))
+                        {
+                            int rakipnesneindex = Program.rakipkartlariList.IndexOf(rakipnesne);
+                            Program.rakipkartlariList[rakipnesneindex]=new AgirTasClass();
+                            Program.rakipkartlariList[rakipnesneindex].dayaniklilik = rakipnesne.dayaniklilik;
+                            Program.rakipkartlariList[rakipnesneindex].seviyePuani = rakipnesne.seviyePuani;
+                            rakipnesne = Program.rakipkartlariList[rakipnesneindex];
+                        }
+                        if (rakipnesne.nesneadi.Equals("Kagit"))
+                        {
+                            int rakipnesneindex = Program.rakipkartlariList.IndexOf(rakipnesne);
+                            Program.rakipkartlariList[rakipnesneindex] = new OzelKagitClass();
+                            Program.rakipkartlariList[rakipnesneindex].dayaniklilik = rakipnesne.dayaniklilik;
+                            Program.rakipkartlariList[rakipnesneindex].seviyePuani = rakipnesne.seviyePuani;
+                            rakipnesne = Program.rakipkartlariList[rakipnesneindex];
+                        }
+                        if (rakipnesne.nesneadi.Equals("Makas"))
+                        {
+                            int rakipnesneindex = Program.rakipkartlariList.IndexOf(rakipnesne);
+                            Program.rakipkartlariList[rakipnesneindex] = new UstaMakasClass();
+                            Program.rakipkartlariList[rakipnesneindex].dayaniklilik = rakipnesne.dayaniklilik;
+                            Program.rakipkartlariList[rakipnesneindex].seviyePuani = rakipnesne.seviyePuani;
+                            rakipnesne = Program.rakipkartlariList[rakipnesneindex];
+                        }
+
                     }
                 }
                 if (rakipnesne.dayaniklilik <= 0.0) // seçilen nesne , rakip nesneyi öldürürse
@@ -229,11 +230,122 @@ namespace TasKagitMakas
                     secilennesne.seviyePuani = secilennesne.seviyePuani + 20;
                     if (secilennesne.seviyePuani > 30)
                     {
-                        //seçilen nesne level atlarsa ekle
+                        //Kart evrim geçirtme
+                        if (secilennesne.nesneadi.Equals("Tas")) 
+                        {
+                            int secilennesneindex = Program.kullanicikartlariList.IndexOf(secilennesne);
+                            Program.kullanicikartlariList[secilennesneindex] = new AgirTasClass();
+                            Program.kullanicikartlariList[secilennesneindex].dayaniklilik = secilennesne.dayaniklilik;
+                            Program.kullanicikartlariList[secilennesneindex].seviyePuani = secilennesne.seviyePuani;
+                            secilennesne = Program.kullanicikartlariList[secilennesneindex];
+                            if (secilennesneindex == 0)
+                            {
+                                NesneBox1.Image = kartImageList.Images[3];
+                            }
+                            else if(secilennesneindex == 1)
+                            {
+                                NesneBox2.Image = kartImageList.Images[3];
+                            }
+                            else if (secilennesneindex == 2)
+                            {
+                                NesneBox3.Image = kartImageList.Images[3];
+                            }
+                            else if (secilennesneindex == 3)
+                            {
+                                NesneBox4.Image = kartImageList.Images[3];
+                            }
+                            else if (secilennesneindex == 4)
+                            {
+                                NesneBox5.Image = kartImageList.Images[3];
+                            }
+                        }
+                        if (secilennesne.nesneadi.Equals("Kagit"))
+                        {
+                            int secilennesneindex = Program.kullanicikartlariList.IndexOf(secilennesne);
+                            Program.kullanicikartlariList[secilennesneindex] = new OzelKagitClass();
+                            Program.kullanicikartlariList[secilennesneindex].dayaniklilik = secilennesne.dayaniklilik;
+                            Program.kullanicikartlariList[secilennesneindex].seviyePuani = secilennesne.seviyePuani;
+                            secilennesne = Program.kullanicikartlariList[secilennesneindex];
+                            if (secilennesneindex == 0)
+                            {
+                                NesneBox1.Image = kartImageList.Images[4];
+                            }
+                            else if (secilennesneindex == 1)
+                            {
+                                NesneBox2.Image = kartImageList.Images[4];
+                            }
+                            else if (secilennesneindex == 2)
+                            {
+                                NesneBox3.Image = kartImageList.Images[4];
+                            }
+                            else if (secilennesneindex == 3)
+                            {
+                                NesneBox4.Image = kartImageList.Images[4];
+                            }
+                            else if (secilennesneindex == 4)
+                            {
+                                NesneBox5.Image = kartImageList.Images[4];
+                            }
+                        }
+                        if (secilennesne.nesneadi.Equals("Makas"))
+                        {
+                            int secilennesneindex = Program.kullanicikartlariList.IndexOf(secilennesne);
+                            Program.kullanicikartlariList[secilennesneindex] = new UstaMakasClass();
+                            Program.kullanicikartlariList[secilennesneindex].dayaniklilik = secilennesne.dayaniklilik;
+                            Program.kullanicikartlariList[secilennesneindex].seviyePuani = secilennesne.seviyePuani;
+                            secilennesne = Program.kullanicikartlariList[secilennesneindex];
+                            if (secilennesneindex == 0)
+                            {
+                                NesneBox1.Image = kartImageList.Images[5];
+                            }
+                            else if (secilennesneindex == 1)
+                            {
+                                NesneBox2.Image = kartImageList.Images[5];
+                            }
+                            else if (secilennesneindex == 2)
+                            {
+                                NesneBox3.Image = kartImageList.Images[5];
+                            }
+                            else if (secilennesneindex == 3)
+                            {
+                                NesneBox4.Image = kartImageList.Images[5];
+                            }
+                            else if (secilennesneindex == 4)
+                            {
+                                NesneBox5.Image = kartImageList.Images[5];
+                            }
+                        }
                     }
                     Program.rakipkartlariList.Remove(rakipnesne);
                     RakipBox.Image = kartImageList.Images[6];
                 }
+
+                /*----- RAKİPBOX FOTOĞRAF YERLEŞTİRME -----*/
+                if (rakipnesne.nesneadi.Equals("Tas"))
+                {
+                    RakipBox.Image = kartImageList.Images[0];
+                }
+                if (rakipnesne.nesneadi.Equals("Kagit"))
+                {
+                    RakipBox.Image = kartImageList.Images[1];
+                }
+                if (rakipnesne.nesneadi.Equals("Makas"))
+                {
+                    RakipBox.Image = kartImageList.Images[2];
+                }
+                if (rakipnesne.nesneadi.Equals("Agir Tas"))
+                {
+                    RakipBox.Image = kartImageList.Images[3];
+                }
+                if (rakipnesne.nesneadi.Equals("Ozel Kagit"))
+                {
+                    RakipBox.Image = kartImageList.Images[4];
+                }
+                if (rakipnesne.nesneadi.Equals("Usta Makas"))
+                {
+                    RakipBox.Image = kartImageList.Images[5];
+                }
+
                 /*--------------- YAZI GÜNCELLEMELERİ ---------------*/
                 //Kullanıcının kartları:
                 if (Program.kullanicikartlariList.IndexOf(secilennesne) == 0) // Label1
