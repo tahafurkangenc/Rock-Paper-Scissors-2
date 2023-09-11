@@ -52,6 +52,8 @@
             rakipseviyepuanilabel = new Label();
             rakipdayanikliliklabel = new Label();
             tursayisilabel = new Label();
+            sonuclabel = new Label();
+            secilinesnenumlabel = new Label();
             ((System.ComponentModel.ISupportInitialize)NesneBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NesneBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NesneBox3).BeginInit();
@@ -317,13 +319,38 @@
             // 
             tursayisilabel.AutoSize = true;
             tursayisilabel.BackColor = Color.Transparent;
-            tursayisilabel.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            tursayisilabel.ForeColor = Color.Lime;
-            tursayisilabel.Location = new Point(783, 585);
+            tursayisilabel.Font = new Font("Impact", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            tursayisilabel.ForeColor = Color.Teal;
+            tursayisilabel.Location = new Point(30, 508);
             tursayisilabel.Name = "tursayisilabel";
-            tursayisilabel.Size = new Size(96, 20);
+            tursayisilabel.Size = new Size(299, 60);
             tursayisilabel.TabIndex = 20;
             tursayisilabel.Text = "Tur Sayısı = 0";
+            // 
+            // sonuclabel
+            // 
+            sonuclabel.AutoSize = true;
+            sonuclabel.BackColor = Color.Transparent;
+            sonuclabel.Font = new Font("Gill Sans Ultra Bold Condensed", 72F, FontStyle.Regular, GraphicsUnit.Point);
+            sonuclabel.ForeColor = Color.Indigo;
+            sonuclabel.Location = new Point(30, 370);
+            sonuclabel.Name = "sonuclabel";
+            sonuclabel.Size = new Size(407, 130);
+            sonuclabel.TabIndex = 21;
+            sonuclabel.Text = "           ";
+            sonuclabel.Click += sonuclabel_Click;
+            // 
+            // secilinesnenumlabel
+            // 
+            secilinesnenumlabel.AutoSize = true;
+            secilinesnenumlabel.BackColor = Color.Transparent;
+            secilinesnenumlabel.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            secilinesnenumlabel.ForeColor = Color.Lime;
+            secilinesnenumlabel.Location = new Point(783, 573);
+            secilinesnenumlabel.Name = "secilinesnenumlabel";
+            secilinesnenumlabel.Size = new Size(57, 20);
+            secilinesnenumlabel.TabIndex = 22;
+            secilinesnenumlabel.Text = "Kart No";
             // 
             // GameForm
             // 
@@ -331,6 +358,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.coin__3_;
             ClientSize = new Size(1280, 720);
+            Controls.Add(secilinesnenumlabel);
+            Controls.Add(sonuclabel);
             Controls.Add(tursayisilabel);
             Controls.Add(rakipseviyepuanilabel);
             Controls.Add(rakipdayanikliliklabel);
@@ -393,5 +422,7 @@
         private Label rakipseviyepuanilabel;
         private Label rakipdayanikliliklabel;
         private Label tursayisilabel;
+        private Label sonuclabel;
+        private Label secilinesnenumlabel;
     }
 }

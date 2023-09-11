@@ -160,12 +160,13 @@ namespace TasKagitMakas
             //secilennesne.dayaniklilik = 10.0;
             Console.WriteLine("Pressed Button --- > Hamleyap");
 
-            if (secilennesne.dayaniklilik  > 0.0) {
+            if (secilennesne.dayaniklilik > 0.0)
+            {
                 //Console.WriteLine(secilennesne.ToString());
                 Console.WriteLine("Program.kullanicikartlariList.IndexOf(secilennesne) =" + Program.kullanicikartlariList.IndexOf(secilennesne));
                 Nesne rakipnesne = Program.rakipkartlariList[Program.random.Next(Program.rakipkartlariList.Count)];
 
-                
+
 
                 //Savaştırma
                 secilennesne.dayaniklilik = secilennesne.dayaniklilik - rakipnesne.etkiHesapla(secilennesne);
@@ -201,7 +202,7 @@ namespace TasKagitMakas
                         if (rakipnesne.nesneadi.Equals("Tas"))
                         {
                             int rakipnesneindex = Program.rakipkartlariList.IndexOf(rakipnesne);
-                            Program.rakipkartlariList[rakipnesneindex]=new AgirTasClass();
+                            Program.rakipkartlariList[rakipnesneindex] = new AgirTasClass();
                             Program.rakipkartlariList[rakipnesneindex].dayaniklilik = rakipnesne.dayaniklilik;
                             Program.rakipkartlariList[rakipnesneindex].seviyePuani = rakipnesne.seviyePuani;
                             rakipnesne = Program.rakipkartlariList[rakipnesneindex];
@@ -231,7 +232,7 @@ namespace TasKagitMakas
                     if (secilennesne.seviyePuani > 30)
                     {
                         //Kart evrim geçirtme
-                        if (secilennesne.nesneadi.Equals("Tas")) 
+                        if (secilennesne.nesneadi.Equals("Tas"))
                         {
                             int secilennesneindex = Program.kullanicikartlariList.IndexOf(secilennesne);
                             Program.kullanicikartlariList[secilennesneindex] = new AgirTasClass();
@@ -242,7 +243,7 @@ namespace TasKagitMakas
                             {
                                 NesneBox1.Image = kartImageList.Images[3];
                             }
-                            else if(secilennesneindex == 1)
+                            else if (secilennesneindex == 1)
                             {
                                 NesneBox2.Image = kartImageList.Images[3];
                             }
@@ -321,29 +322,36 @@ namespace TasKagitMakas
                 }
 
                 /*----- RAKİPBOX FOTOĞRAF YERLEŞTİRME -----*/
-                if (rakipnesne.nesneadi.Equals("Tas"))
+                if (rakipnesne.dayaniklilik > 0.0)
                 {
-                    RakipBox.Image = kartImageList.Images[0];
+                    if (rakipnesne.nesneadi.Equals("Tas"))
+                    {
+                        RakipBox.Image = kartImageList.Images[0];
+                    }
+                    if (rakipnesne.nesneadi.Equals("Kagit"))
+                    {
+                        RakipBox.Image = kartImageList.Images[1];
+                    }
+                    if (rakipnesne.nesneadi.Equals("Makas"))
+                    {
+                        RakipBox.Image = kartImageList.Images[2];
+                    }
+                    if (rakipnesne.nesneadi.Equals("Agir Tas"))
+                    {
+                        RakipBox.Image = kartImageList.Images[3];
+                    }
+                    if (rakipnesne.nesneadi.Equals("Ozel Kagit"))
+                    {
+                        RakipBox.Image = kartImageList.Images[4];
+                    }
+                    if (rakipnesne.nesneadi.Equals("Usta Makas"))
+                    {
+                        RakipBox.Image = kartImageList.Images[5];
+                    }
                 }
-                if (rakipnesne.nesneadi.Equals("Kagit"))
+                else
                 {
-                    RakipBox.Image = kartImageList.Images[1];
-                }
-                if (rakipnesne.nesneadi.Equals("Makas"))
-                {
-                    RakipBox.Image = kartImageList.Images[2];
-                }
-                if (rakipnesne.nesneadi.Equals("Agir Tas"))
-                {
-                    RakipBox.Image = kartImageList.Images[3];
-                }
-                if (rakipnesne.nesneadi.Equals("Ozel Kagit"))
-                {
-                    RakipBox.Image = kartImageList.Images[4];
-                }
-                if (rakipnesne.nesneadi.Equals("Usta Makas"))
-                {
-                    RakipBox.Image = kartImageList.Images[5];
+                    RakipBox.Image = kartImageList.Images[6];
                 }
 
                 /*--------------- YAZI GÜNCELLEMELERİ ---------------*/
@@ -378,26 +386,65 @@ namespace TasKagitMakas
                 rakipseviyepuanilabel.Text = "Seviye Puanı = " + rakipnesne.seviyePuani;
                 /*----- Tur Sayısı Label Güncelleme -----*/
                 tursayisi++;
-                tursayisilabel.Text = "Tur Sayısı = " + tursayisi;
-                double kullanicikartlaritoplamskor = 0;
+                tursayisilabel.Text = "Tur Sayısı = " + tursayisi + "/50";
+                secilinesnenumlabel.Text = "Kart No = " + (Program.rakipkartlariList.IndexOf(rakipnesne) + 1)+"/"+Program.rakipkartlariList.Count;
+                double rakiptoplamdayaniklilik = 0;
+                for (int i = 0; i < Program.rakipkartlariList.Count; i++)
+                {
+                    rakiptoplamdayaniklilik = rakiptoplamdayaniklilik + Program.rakipkartlariList[i].dayaniklilik;
+                }
+                double kullanicitoplamdayaniklilik = 0;
                 for (int i = 0; i < Program.kullanicikartlariList.Count; i++)
                 {
-                    kullanicikartlaritoplamskor = kullanicikartlaritoplamskor + Program.kullanicikartlariList[i].dayaniklilik;
+                    kullanicitoplamdayaniklilik = kullanicitoplamdayaniklilik + Program.kullanicikartlariList[i].dayaniklilik;
                 }
-                if (Program.rakipkartlariList.Count <= 0 && kullanicikartlaritoplamskor <= 0)
+                if (Program.rakipkartlariList.Count <= 0 && kullanicitoplamdayaniklilik <= 0)
                 {
                     Console.WriteLine("OYUN BİTTİ ---> Berabere");
+                    sonuclabel.Text = "Berabere";
+                    hamleyapPictureBox.Visible = false;
                 }
                 else if (Program.rakipkartlariList.Count <= 0)
                 {
                     Console.WriteLine("OYUN BİTTİ ---> Kullanici kazandi");
+                    sonuclabel.Text = "Kullanıcı Kazandı";
+                    hamleyapPictureBox.Visible = false;
                 }
-                else if (kullanicikartlaritoplamskor <= 0)
+                else if (kullanicitoplamdayaniklilik <= 0)
                 {
                     Console.WriteLine("OYUN BİTTİ ---> Rakip kazandi");
+                    sonuclabel.Text = "Bilgisayar Kazandı";
+                    hamleyapPictureBox.Visible = false;
+                }
+                else if (tursayisi >= 50)
+                {
+                    if (kullanicitoplamdayaniklilik > rakiptoplamdayaniklilik)
+                    {
+                        Console.WriteLine("OYUN BİTTİ ---> Kullanici kazandi");
+                        Console.WriteLine("Kullanıcı = " + kullanicitoplamdayaniklilik + "\n Bilgisayar = " + rakiptoplamdayaniklilik);
+                        sonuclabel.Text = "Kullanıcı Kazandı";
+                    }
+                    else if (rakiptoplamdayaniklilik > kullanicitoplamdayaniklilik)
+                    {
+                        Console.WriteLine("OYUN BİTTİ ---> Rakip kazandi");
+                        Console.WriteLine("Kullanıcı = " + kullanicitoplamdayaniklilik + "\n Bilgisayar = " + rakiptoplamdayaniklilik);
+                        sonuclabel.Text = "Bilgisayar Kazandı";
+                    }
+                    else if (rakiptoplamdayaniklilik == kullanicitoplamdayaniklilik)
+                    {
+                        Console.WriteLine("OYUN BİTTİ ---> Berabere");
+                        Console.WriteLine("Kullanıcı = " + kullanicitoplamdayaniklilik + "\n Bilgisayar = " + rakiptoplamdayaniklilik);
+                        sonuclabel.Text = "Berabere";
+                    }
+                    hamleyapPictureBox.Visible = false;
                 }
             }
 
+        }
+
+        private void sonuclabel_Click(object sender, EventArgs e)
+        {
+            //programı kapat
         }
     }
 }
