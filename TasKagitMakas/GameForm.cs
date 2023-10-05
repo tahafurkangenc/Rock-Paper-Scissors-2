@@ -387,7 +387,7 @@ namespace TasKagitMakas
                 /*----- Tur Sayısı Label Güncelleme -----*/
                 tursayisi++;
                 tursayisilabel.Text = "Tur Sayısı = " + tursayisi + "/50";
-                secilinesnenumlabel.Text = "Kart No = " + (Program.rakipkartlariList.IndexOf(rakipnesne) + 1)+"/"+Program.rakipkartlariList.Count;
+                secilinesnenumlabel.Text = "Kart No = " + (Program.rakipkartlariList.IndexOf(rakipnesne) + 1) + "/" + Program.rakipkartlariList.Count;
                 double rakiptoplamdayaniklilik = 0;
                 for (int i = 0; i < Program.rakipkartlariList.Count; i++)
                 {
@@ -445,6 +445,30 @@ namespace TasKagitMakas
         private void sonuclabel_Click(object sender, EventArgs e)
         {
             //programı kapat
+        }
+
+        private void rakipseviyepuanilabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rakipdayanikliliklabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void secilinesnenumlabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dayanikliliklabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void seviyepuanilabel3_Click(object sender, EventArgs e)
+        {
         }
     }
 }

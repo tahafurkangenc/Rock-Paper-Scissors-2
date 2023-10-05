@@ -103,6 +103,16 @@ namespace TasKagitMakas.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap Adsız_tasarım {
+            get {
+                object obj = ResourceManager.GetObject("Adsız tasarım", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap ciks {
             get {
                 object obj = ResourceManager.GetObject("ciks", resourceCulture);
